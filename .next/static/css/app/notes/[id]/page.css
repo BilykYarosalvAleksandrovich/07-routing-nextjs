@@ -1,50 +1,127 @@
-/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./app/notes/[id]/NoteDetails.module.css ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************/
-.NoteDetails_container__YgHaC {
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./components/NotePreview/NotePreview.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************/
+.NotePreview_container__E6cVG {
   max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
+  margin: 32px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.NoteDetails_item__ta_pN {
-  background-color: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
+.NotePreview_item__IU603 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.NoteDetails_header__yypya h2 {
-  font-size: 2.2rem;
+.NotePreview_header__DGp2t {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.NotePreview_header__DGp2t h2 {
+  margin: 0;
+  font-size: 28px;
   color: #333;
-  margin-top: 0;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
 }
 
-.NoteDetails_content__vVq3n {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #555;
-  white-space: pre-wrap; /* Зберігає форматування тексту */
-  margin-bottom: 20px;
+.NotePreview_content__vLV_k {
+  font-size: 18px;
+  line-height: 26px;
+  color: #444;
+  white-space: pre-wrap;
 }
 
-.NoteDetails_date__wMuPt {
-  font-size: 0.9rem;
-  color: #999;
-  text-align: right;
-  border-top: 1px dashed #eee;
-  padding-top: 10px;
-}
-
-/* Стилі для заглушок завантаження/помилки */
-.NoteDetails_container__YgHaC > p {
-  text-align: center;
-  font-size: 1.2rem;
+.NotePreview_date__XNvpD {
+  font-size: 14px;
   color: #888;
-  padding: 50px;
+  text-align: right;
+}
+
+.NotePreview_tag__ldFmI {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #0d6efd;
+  background-color: #e7f1ff;
+  border: 1px solid #b6d4fe;
+  border-radius: 12px;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.NotePreview_backBtn__Ezvbk {
+  align-self: flex-start;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline-block;
+  background-color: transparent;
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[7].use[3]!./app/notes/[id]/Page.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+/* Page.module.css — обгортка для сторінки нотатки */
+.Page_wrapper__bIIBd {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+  color: #0f172a;
+}
+
+.Page_header__CbpUB {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.Page_title__nB579 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.Page_meta__lRLD1 {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.Page_content__G90rV {
+  margin-top: 1rem;
+  line-height: 1.65;
+  font-size: 1rem;
+  color: #111827;
+  white-space: pre-wrap;
+}
+
+.Page_footer__O42kQ {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 

@@ -1,27 +1,13 @@
-import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { fetchNoteById } from "@/lib/api";
-import { Note } from "@/types/note";
-import NoteDetailsClient from "./NoteDetails.client";
+import NotePreview from "@/components/NotePreview/NotePreview";
+import css from "./Page.module.css";
 
-export default async function NoteDetailsPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = await params;
+export default async function NotePage({ params }: { params: { id: string } }) {
+  const note = await fetchNoteById(params.id);
 
-  const queryClient = new QueryClient();
-
-  try {
-    await queryClient.prefetchQuery<Note>({
-      queryKey: ["note", id],
-      queryFn: () => fetchNoteById(id),
-    });
-  } catch (error) {
-    console.error("Error prefetching note:", error);
-  }
-
-  const dehydratedState = dehydrate(queryClient);
-
-  return <NoteDetailsClient dehydratedState={dehydratedState} id={id} />;
+  return (
+    <div className={css.wrapper}>
+      <NotePreview note={note} />
+    </div>
+  );
 }

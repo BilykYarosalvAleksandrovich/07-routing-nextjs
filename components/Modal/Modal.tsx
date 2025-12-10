@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from "react";
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import css from "./Modal.module.css";
 
@@ -7,50 +9,46 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
-// ⬅️ ВИДАЛЕНО ГЛОБАЛЬНЕ ОГОЛОШЕННЯ modalRoot
-
 export default function Modal({ onClose, children }: ModalProps) {
   const backdropRef = useRef<HTMLDivElement>(null);
+  const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
 
-  // ⬅️ Отримуємо цільовий елемент тут, коли компонент монтується
-  const modalRoot = document.querySelector("#modal-root") as HTMLElement;
+  // Пошук #modal-root тільки на клієнті
+  useEffect(() => {
+    const root = document.querySelector("#modal-root") as HTMLElement | null;
+    setModalRoot(root);
+  }, []);
 
-  // Логіка блокування прокручування
+  // Блокуємо скрол сторінки
   useEffect(() => {
     document.body.style.overflow = "hidden";
-
     return () => {
       document.body.style.overflow = "auto";
     };
   }, []);
 
-  // Логіка закриття по клавіші ESC
+  // Закриття по ESC
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.code === "Escape") {
         onClose();
       }
     };
-
     window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
-  // Логіка закриття по кліку на бекдроп
-  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  // Закриття по кліку на бекдроп
+  const handleBackdropClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
     if (e.target === backdropRef.current) {
       onClose();
     }
   };
 
-  // ⬅️ КРИТИЧНА ПЕРЕВІРКА: Якщо елемент не знайдено, не рендеримо нічого
-  if (!modalRoot) {
-    console.error("Target container #modal-root not found in the DOM.");
-    return null;
-  }
+  // Чекаємо, поки зʼявиться modal-root
+  if (!modalRoot) return null;
 
   return ReactDOM.createPortal(
     <div

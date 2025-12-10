@@ -17,6 +17,17 @@
       "static/chunks/main-app.js",
       "static/chunks/app/loading.js"
     ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js",
+      "static/css/app/not-found.css"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
+    ],
     "/notes/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -27,6 +38,12 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/notes/error.js"
+    ],
+    "/notes/@modal/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/notes/@modal/[id]/page.css",
+      "static/chunks/app/notes/@modal/[id]/page.js"
     ],
     "/notes/[id]/page": [
       "static/chunks/webpack.js",

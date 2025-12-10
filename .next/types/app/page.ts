@@ -1,4 +1,4 @@
-// File: /Users/mac/Desktop/школа GoIt/Домашні завдання GitHub/projects/React.js+Next/06-notehub-nextjs/app/page.tsx
+// File: /Users/mac/Desktop/школа GoIt/Домашні завдання GitHub/projects/React.js+Next/07-routing-nextjs/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -1,0 +1,39 @@
+/* Стилі для сторінки 404 - прості, читабельні, центровані */
+.container {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  gap: 1rem;
+  background: transparent;
+}
+
+.title {
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 0;
+  color: #111827; /* темний колір тексту */
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #6b7280; /* сірий для опису */
+  max-width: 680px;
+}
+
+/* Адаптивність */
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+}
