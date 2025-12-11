@@ -1,5 +1,9 @@
 {
-  "/page": "app/page.js",
+  "/notes/filter/[...tag]/page": "app/notes/filter/[...tag]/page.js",
+  "/notes/[id]/page": "app/notes/[id]/page.js",
+  "/notes/filter/page": "app/notes/filter/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/notes/page": "app/notes/page.js",
-  "/notes/[id]/page": "app/notes/[id]/page.js"
+  "/page": "app/page.js",
+  "/notes/@modal/[id]/page": "app/notes/@modal/[id]/page.js"
 }
