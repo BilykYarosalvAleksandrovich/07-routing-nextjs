@@ -18,7 +18,9 @@ export default function NoteDetailsClient({
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
     enabled: !!id,
-    refetchOnMount: false, // ← ОБОВ'ЯЗКОВО
+    refetchOnWindowFocus: false,
+    staleTime: 0,
+    refetchOnMount: true,
   });
 
   if (isLoading) {
@@ -48,7 +50,7 @@ export default function NoteDetailsClient({
           <div className={css.content}>{data.content}</div>
 
           <p className={css.date}>
-            Created: {new Date(data.createdAt).toLocaleDateString()}
+            Created: {new Date(data.createdAt).toLocaleDateString("uk-UA")}
           </p>
         </div>
       </div>
