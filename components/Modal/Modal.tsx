@@ -1,61 +1,37 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
+import { useRouter } from "next/navigation";
 import css from "./Modal.module.css";
 
-interface ModalProps {
-  onClose: () => void;
-  children: React.ReactNode;
-}
-
-export default function Modal({ onClose, children }: ModalProps) {
+export default function Modal({ children }: { children: React.ReactNode }) {
   const backdropRef = useRef<HTMLDivElement>(null);
-  const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
+  const router = useRouter();
 
-  // Пошук #modal-root тільки на клієнті
+  const modalRoot = document.querySelector("#modal-root") as HTMLElement;
+
+  // Закриття модалки
+  const close = () => router.back();
+
+  // ESC
   useEffect(() => {
-    const root = document.querySelector("#modal-root") as HTMLElement | null;
-    setModalRoot(root);
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
   }, []);
 
-  // Блокуємо скрол сторінки
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
-
-  // Закриття по ESC
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === "Escape") {
-        onClose();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [onClose]);
-
-  // Закриття по кліку на бекдроп
-  const handleBackdropClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    if (e.target === backdropRef.current) {
-      onClose();
-    }
+  // Клік по бекдропу
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === backdropRef.current) close();
   };
 
-  // Чекаємо, поки зʼявиться modal-root
   if (!modalRoot) return null;
 
   return ReactDOM.createPortal(
-    <div
-      className={css.backdrop}
-      ref={backdropRef}
-      onClick={handleBackdropClick}
-    >
+    <div className={css.backdrop} ref={backdropRef} onClick={handleClick}>
       <div className={css.modal}>{children}</div>
     </div>,
     modalRoot
