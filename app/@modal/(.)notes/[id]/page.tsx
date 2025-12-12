@@ -10,7 +10,7 @@ export default async function NoteModalPage({
   const note = await fetchNoteById(params.id);
 
   return (
-    <Modal>
+    <Modal onClose={() => history.back()}>
       <NotePreview note={note} />
     </Modal>
   );

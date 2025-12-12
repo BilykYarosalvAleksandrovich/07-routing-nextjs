@@ -1,38 +1,34 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import { ReactNode, useEffect } from "react";
 import ReactDOM from "react-dom";
-import { useRouter } from "next/navigation";
-import css from "./Modal.module.css";
+import styles from "./Modal.module.css";
 
-export default function Modal({ children }: { children: React.ReactNode }) {
-  const backdropRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
+interface ModalProps {
+  children: ReactNode;
+  onClose: () => void;
+}
 
-  const modalRoot = document.querySelector("#modal-root") as HTMLElement;
-
-  // Закриття модалки
-  const close = () => router.back();
-
-  // ESC
+export default function Modal({ children, onClose }: ModalProps) {
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
     };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, []);
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onClose]);
 
-  // Клік по бекдропу
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === backdropRef.current) close();
-  };
-
+  const modalRoot = document.getElementById("modal-root");
   if (!modalRoot) return null;
 
   return ReactDOM.createPortal(
-    <div className={css.backdrop} ref={backdropRef} onClick={handleClick}>
-      <div className={css.modal}>{children}</div>
+    <div className={styles.overlay} onClick={onClose}>
+      <div
+        className={styles.modal}
+        onClick={(e) => e.stopPropagation()} // щоб клік всередині не закривав
+      >
+        {children}
+      </div>
     </div>,
     modalRoot
   );
