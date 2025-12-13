@@ -1,25 +1,23 @@
 import { fetchNotes } from "@/lib/api";
-import NoteList from "@/components/NoteList/NoteList";
+import NotesList from "@/components/NotesList/NotesList";
 import css from "./FilterPage.module.css";
 
-export default async function FilterPage({
-  params,
-}: {
-  params: { tag: string[] };
-}) {
-  const rawTag = params.tag?.[0]; // Work / Shopping / all
-  const tag = rawTag === "all" ? "" : rawTag;
+interface Props {
+  params: { slug: string[] };
+}
 
-  const notesData = await fetchNotes({
+export default async function FilterPage({ params }: Props) {
+  const tag = params.slug?.[0];
+
+  const { notes } = await fetchNotes({
     page: 1,
-    perPage: 100,
-    search: "",
-    tag: tag, // якщо "", бекенд поверне всі
+    perPage: 20,
+    tag: tag === "all" ? undefined : tag,
   });
 
   return (
     <div className={css.container}>
-      <NoteList notes={notesData.notes} />
+      <NotesList notes={notes} />
     </div>
   );
 }

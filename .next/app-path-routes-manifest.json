@@ -1,1 +1,1 @@
-{"/@modal/(.)notes/[id]/page":"/(.)notes/[id]","/page":"/","/notes/filter/page":"/notes/filter","/notes/page":"/notes","/notes/filter/[...slag]/page":"/notes/filter/[...slag]","/notes/[id]/page":"/notes/[id]","/_not-found/page":"/_not-found"}
+{"/notes/filter/[...slug]/page":"/notes/filter/[...slug]","/_not-found/page":"/_not-found","/notes/[id]/page":"/notes/[id]","/@modal/(.)notes/[id]/page":"/(.)notes/[id]","/page":"/","/notes/filter/page":"/notes/filter","/notes/page":"/notes"}

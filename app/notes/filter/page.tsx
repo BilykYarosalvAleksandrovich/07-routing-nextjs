@@ -1,5 +1,14 @@
-import { redirect } from "next/navigation";
-
-export default function FilterIndexPage() {
-  redirect("/notes/filter/all");
+export default function FilterLayout({
+  children,
+  sidebar,
+}: {
+  children: React.ReactNode;
+  sidebar: React.ReactNode;
+}) {
+  return (
+    <div style={{ display: "flex", gap: "20px" }}>
+      <aside>{sidebar}</aside>
+      <main>{children}</main>
+    </div>
+  );
 }
