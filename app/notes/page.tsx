@@ -1,5 +1,5 @@
-import Notes from "./Notes.client";
+import NotesClient from "@/app/notes/Notes.client";
 
 export default function NotesPage() {
-  return <Notes />;
+  return <NotesClient />;
 }

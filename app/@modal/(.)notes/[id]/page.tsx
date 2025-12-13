@@ -1,4 +1,4 @@
-import Modal from "@/components/Modal/Modal";
+import ModalClient from "@/components/Modal/ModalClient";
 import NotePreview from "@/components/NotePreview/NotePreview";
 import { fetchNoteById } from "@/lib/api";
 
@@ -10,8 +10,8 @@ export default async function NoteModalPage({ params }: Props) {
   const note = await fetchNoteById(params.id);
 
   return (
-    <Modal>
+    <ModalClient>
       <NotePreview note={note} />
-    </Modal>
+    </ModalClient>
   );
 }
