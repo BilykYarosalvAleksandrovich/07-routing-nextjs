@@ -1,5 +1,10 @@
 {
-  "/@modal/(.)notes/[id]/page": "app/@modal/(.)notes/[id]/page.js",
+  "/notes/page": "app/notes/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
-  "/notes/page": "app/notes/page.js"
+  "/@modal/(.)notes/[id]/page": "app/@modal/(.)notes/[id]/page.js",
+  "/notes/[id]/page": "app/notes/[id]/page.js",
+  "/notes/filter/@sidebar/page": "app/notes/filter/@sidebar/page.js",
+  "/notes/filter/[...slug]/page": "app/notes/filter/[...slug]/page.js",
+  "/notes/filter/page": "app/notes/filter/page.js"
 }
