@@ -1,19 +1,22 @@
 import axios, { isAxiosError } from "axios";
 import type { Note, NoteTag } from "@/types/note";
 
-// Токен з .env
+/* ============================
+   ENV TOKEN
+============================ */
+
 const token = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
 
 if (!token) {
-  console.error(
-    "❌ NEXT_PUBLIC_NOTEHUB_TOKEN is missing. Add it to .env.local and restart the server."
+  throw new Error(
+    "❌ NEXT_PUBLIC_NOTEHUB_TOKEN is missing. Add it to .env.local"
   );
-  throw new Error("NEXT_PUBLIC_NOTEHUB_TOKEN is missing");
 }
 
 /* ============================
    Axios instance
 ============================ */
+
 const api = axios.create({
   baseURL: "https://notehub-public.goit.study/api",
   headers: {
@@ -27,10 +30,10 @@ const api = axios.create({
 ============================ */
 
 export interface FetchNotesParams {
-  page: number;
-  perPage: number;
+  page?: number;
+  perPage?: number;
   search?: string;
-  tag?: string; // <-- додано спеціально для фільтрації
+  tag?: string; // "all" обробляємо окремо
 }
 
 export interface FetchNotesResponse {
@@ -45,10 +48,10 @@ export interface CreateNoteDto {
 }
 
 /* ============================
-   API Functions
+   API FUNCTIONS
 ============================ */
 
-// Отримання списку нотаток (з фільтром за тегом)
+// ✅ Отримання списку нотаток
 export const fetchNotes = async (
   params: FetchNotesParams
 ): Promise<FetchNotesResponse> => {
@@ -58,53 +61,54 @@ export const fetchNotes = async (
         page: params.page,
         perPage: params.perPage,
         search: params.search,
-        tag: params.tag || undefined, // якщо тег "" → не відправляємо
+        // 🔥 якщо tag === "all" — НЕ передаємо
+        tag: params.tag && params.tag !== "all" ? params.tag : undefined,
       },
     });
 
     return res.data;
   } catch (error) {
-    if (isAxiosError(error) && error.response?.status === 401) {
-      console.error("❌ 401 Unauthorized when fetching notes");
+    if (isAxiosError(error)) {
+      console.error("❌ fetchNotes error:", error.response?.data);
     }
     throw error;
   }
 };
 
-// Отримання нотатки за ID
+// ✅ Отримання нотатки за ID
 export const fetchNoteById = async (id: string): Promise<Note> => {
   try {
     const res = await api.get<Note>(`/notes/${id}`);
     return res.data;
   } catch (error) {
-    if (isAxiosError(error) && error.response?.status === 401) {
-      console.error("❌ 401 Unauthorized when fetching note by ID");
+    if (isAxiosError(error)) {
+      console.error("❌ fetchNoteById error:", error.response?.data);
     }
     throw error;
   }
 };
 
-// Створення нової нотатки
+// ✅ Створення нотатки
 export const createNote = async (dto: CreateNoteDto): Promise<Note> => {
   try {
     const res = await api.post<Note>("/notes", dto);
     return res.data;
   } catch (error) {
-    if (isAxiosError(error) && error.response?.status === 401) {
-      console.error("❌ 401 Unauthorized when creating note");
+    if (isAxiosError(error)) {
+      console.error("❌ createNote error:", error.response?.data);
     }
     throw error;
   }
 };
 
-// Видалення нотатки
+// ✅ Видалення нотатки
 export const deleteNote = async (id: string): Promise<Note> => {
   try {
     const res = await api.delete<Note>(`/notes/${id}`);
     return res.data;
   } catch (error) {
-    if (isAxiosError(error) && error.response?.status === 401) {
-      console.error("❌ 401 Unauthorized when deleting note");
+    if (isAxiosError(error)) {
+      console.error("❌ deleteNote error:", error.response?.data);
     }
     throw error;
   }

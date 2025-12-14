@@ -27,6 +27,9 @@ export default function NotePreview({ id }: Props) {
         <h2>{data.title}</h2>
         <p>{data.content}</p>
         <p>Tag: {data.tag}</p>
+        <p>
+          Created at: {new Date(data.createdAt).toLocaleDateString("uk-UA")}
+        </p>
       </article>
     </Modal>
   );

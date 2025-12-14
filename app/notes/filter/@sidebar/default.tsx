@@ -1,21 +1,31 @@
 import Link from "next/link";
-import css from "./SidebarNotes.module.css";
+import type { NotesTag } from "@/types/note";
 
-const tags = ["Todo", "Work", "Personal", "Meeting", "Shopping"];
+const tags: NotesTag[] = [
+  "Todo",
+  "Work",
+  "Personal",
+  "Meeting",
+  "Shopping",
+];
 
 export default function Sidebar() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link href="/notes/filter/all">All notes</Link>
-        </li>
-        {tags.map((tag) => (
-          <li key={tag}>
-            <Link href={`/notes/filter/${tag.toLowerCase()}`}>{tag}</Link>
+    <aside>
+      <nav aria-label="Notes filter">
+        <ul>
+          <li>
+            <Link href="/notes/filter/all">All notes</Link>
           </li>
-        ))}
-      </ul>
-    </nav>
+
+          {tags.map((tag) => (
+            <li key={tag}>
+              {/* 🔥 БЕЗ toLowerCase */}
+              <Link href={`/notes/filter/${tag}`}>{tag}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
   );
 }

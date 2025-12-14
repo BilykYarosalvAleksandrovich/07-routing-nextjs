@@ -12,16 +12,21 @@ import Modal from "@/components/Modal/Modal";
 import NoteForm from "@/components/NoteForm/NoteForm";
 import css from "./FilterPage.module.css";
 
-interface Props {
+interface NotesClientProps {
   tag: string;
 }
 
-export default function NotesClient({ tag }: Props) {
+export default function NotesClient({ tag }: NotesClientProps) {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [debouncedSearch] = useDebounce(search, 500);
+
+  const handleSearchChange = (value: string) => {
+    setSearch(value);
+    setPage(1); // 🔥 обовʼязково для GoIT
+  };
 
   const { data, isLoading, isError } = useQuery<FetchNotesResponse>({
     queryKey: ["notes", tag, page, debouncedSearch],
@@ -37,7 +42,7 @@ export default function NotesClient({ tag }: Props) {
 
   return (
     <>
-      <SearchBox value={search} onChange={setSearch} />
+      <SearchBox value={search} onChange={handleSearchChange} />
 
       <button onClick={() => setIsModalOpen(true)}>Create note</button>
 
