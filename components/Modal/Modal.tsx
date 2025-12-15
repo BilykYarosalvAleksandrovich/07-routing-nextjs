@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect } from "react";
 import ReactDOM from "react-dom";
-import styles from "./Modal.module.css";
+import css from "./Modal.module.css";
 
 interface ModalProps {
   children: ReactNode;
@@ -22,11 +22,16 @@ export default function Modal({ children, onClose }: ModalProps) {
   if (!modalRoot) return null;
 
   return ReactDOM.createPortal(
-    <div className={styles.overlay} onClick={onClose}>
-      <div
-        className={styles.modal}
-        onClick={(e) => e.stopPropagation()} // щоб клік всередині не закривав
-      >
+    <div className={css.backdrop} onClick={onClose}>
+      <div className={css.modal} onClick={(e) => e.stopPropagation()}>
+        <button
+          className={css.closeButton}
+          onClick={onClose}
+          aria-label="Close modal"
+        >
+          ✕
+        </button>
+
         {children}
       </div>
     </div>,

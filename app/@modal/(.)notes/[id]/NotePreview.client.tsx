@@ -25,7 +25,6 @@ export default function NotePreviewClient() {
   return (
     <Modal onClose={() => router.back()}>
       <div className={css.container}>
-        {/* 🔥 ОБОВʼЯЗКОВА кнопка закриття */}
         <button
           type="button"
           className={css.closeButton}

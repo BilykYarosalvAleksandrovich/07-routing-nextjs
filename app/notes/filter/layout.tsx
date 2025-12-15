@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import css from "./FilterLayout.module.css";
 
 export default function FilterLayout({
   children,
@@ -8,9 +9,9 @@ export default function FilterLayout({
   sidebar: ReactNode;
 }) {
   return (
-    <div className="flex gap-6">
-      <aside className="w-64">{sidebar}</aside>
-      <section className="flex-1">{children}</section>
+    <div className={css.layout}>
+      <aside className={css.sidebar}>{sidebar}</aside>
+      <main className={css.content}>{children}</main>
     </div>
   );
 }

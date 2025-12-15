@@ -1,5 +1,6 @@
 {
-  "/page": "app/page.js",
   "/@modal/(.)notes/[id]/page": "app/@modal/(.)notes/[id]/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
   "/notes/filter/[...slug]/page": "app/notes/filter/[...slug]/page.js"
 }
