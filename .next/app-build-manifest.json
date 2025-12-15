@@ -47,6 +47,7 @@
     "/notes/filter/@sidebar/default": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/notes/filter/@sidebar/default.css",
       "static/chunks/app/notes/filter/@sidebar/default.js"
     ],
     "/notes/filter/layout": [
@@ -70,11 +71,11 @@
       "static/css/app/notes/not-found.css",
       "static/chunks/app/notes/not-found.js"
     ],
-    "/_not-found/page": [
+    "/@modal/(.)notes/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/_not-found/page.css",
-      "static/chunks/app/_not-found/page.js"
+      "static/css/app/@modal/(.)notes/[id]/page.css",
+      "static/chunks/app/@modal/(.)notes/[id]/page.js"
     ]
   }
 }

@@ -31,6 +31,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "(ssr)/./node_modules/next/dist/api/navigation.js":
+/*!**************************************************!*\
+  !*** ./node_modules/next/dist/api/navigation.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _client_components_navigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../client/components/navigation */ \"(ssr)/./node_modules/next/dist/client/components/navigation.js\");\n/* harmony import */ var _client_components_navigation__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_client_components_navigation__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};\n/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _client_components_navigation__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== \"default\") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _client_components_navigation__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]\n/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);\n\n\n//# sourceMappingURL=navigation.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2FwaS9uYXZpZ2F0aW9uLmpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUFnRDs7QUFFaEQiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8wNi1ub3RlaHViLW5leHRqcy8uL25vZGVfbW9kdWxlcy9uZXh0L2Rpc3QvYXBpL25hdmlnYXRpb24uanM/YWE5NCJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgKiBmcm9tIFwiLi4vY2xpZW50L2NvbXBvbmVudHMvbmF2aWdhdGlvblwiO1xuXG4vLyMgc291cmNlTWFwcGluZ1VSTD1uYXZpZ2F0aW9uLmpzLm1hcCJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/next/dist/api/navigation.js\n");
+
+/***/ }),
+
 /***/ "(ssr)/./node_modules/next/dist/client/add-base-path.js":
 /*!********************************************************!*\
   !*** ./node_modules/next/dist/client/add-base-path.js ***!
@@ -2123,6 +2134,28 @@ const { createProxy } = __webpack_require__(/*! next/dist/build/webpack/loaders/
 module.exports = createProxy("/Users/mac/Desktop/школа GoIt/Домашні завдання GitHub/projects/React.js+Next/07-routing-nextjs/node_modules/next/dist/client/components/not-found-boundary.js");
  //# sourceMappingURL=not-found-boundary.js.map
 
+
+/***/ }),
+
+/***/ "(rsc)/./node_modules/next/dist/client/components/not-found.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/next/dist/client/components/not-found.js ***!
+  \***************************************************************/
+/***/ ((module, exports) => {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\n0 && (0);\nfunction _export(target, all) {\n    for(var name in all)Object.defineProperty(target, name, {\n        enumerable: true,\n        get: all[name]\n    });\n}\n_export(exports, {\n    isNotFoundError: function() {\n        return isNotFoundError;\n    },\n    notFound: function() {\n        return notFound;\n    }\n});\nconst NOT_FOUND_ERROR_CODE = \"NEXT_NOT_FOUND\";\nfunction notFound() {\n    // eslint-disable-next-line no-throw-literal\n    const error = new Error(NOT_FOUND_ERROR_CODE);\n    error.digest = NOT_FOUND_ERROR_CODE;\n    throw error;\n}\nfunction isNotFoundError(error) {\n    if (typeof error !== \"object\" || error === null || !(\"digest\" in error)) {\n        return false;\n    }\n    return error.digest === NOT_FOUND_ERROR_CODE;\n}\nif ((typeof exports.default === \"function\" || typeof exports.default === \"object\" && exports.default !== null) && typeof exports.default.__esModule === \"undefined\") {\n    Object.defineProperty(exports.default, \"__esModule\", {\n        value: true\n    });\n    Object.assign(exports.default, exports);\n    module.exports = exports.default;\n} //# sourceMappingURL=not-found.js.map\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2NsaWVudC9jb21wb25lbnRzL25vdC1mb3VuZC5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7SUFnQ2dCQSxpQkFBZTtlQUFmQTs7SUFkQUMsVUFBUTtlQUFSQTs7O0FBbEJoQixNQUFNQyx1QkFBdUI7QUFrQnRCLFNBQVNEO0lBQ2QsNENBQTRDO0lBQzVDLE1BQU1FLFFBQVEsSUFBSUMsTUFBTUY7SUFDdEJDLE1BQXdCRSxNQUFNLEdBQUdIO0lBQ25DLE1BQU1DO0FBQ1I7QUFTTyxTQUFTSCxnQkFBZ0JHLEtBQWM7SUFDNUMsSUFBSSxPQUFPQSxVQUFVLFlBQVlBLFVBQVUsUUFBUSxDQUFFLGFBQVlBLEtBQUFBLEdBQVE7UUFDdkUsT0FBTztJQUNUO0lBRUEsT0FBT0EsTUFBTUUsTUFBTSxLQUFLSDtBQUMxQiIsInNvdXJjZXMiOlsid2VicGFjazovLzA2LW5vdGVodWItbmV4dGpzLy4uLy4uLy4uL3NyYy9jbGllbnQvY29tcG9uZW50cy9ub3QtZm91bmQudHM/MDdmYiJdLCJuYW1lcyI6WyJpc05vdEZvdW5kRXJyb3IiLCJub3RGb3VuZCIsIk5PVF9GT1VORF9FUlJPUl9DT0RFIiwiZXJyb3IiLCJFcnJvciIsImRpZ2VzdCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next/dist/client/components/not-found.js\n");
+
+/***/ }),
+
+/***/ "(rsc)/./node_modules/next/dist/client/components/parallel-route-default.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/next/dist/client/components/parallel-route-default.js ***!
+  \****************************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\n0 && (0);\nfunction _export(target, all) {\n    for(var name in all)Object.defineProperty(target, name, {\n        enumerable: true,\n        get: all[name]\n    });\n}\n_export(exports, {\n    PARALLEL_ROUTE_DEFAULT_PATH: function() {\n        return PARALLEL_ROUTE_DEFAULT_PATH;\n    },\n    default: function() {\n        return ParallelRouteDefault;\n    }\n});\nconst _notfound = __webpack_require__(/*! ./not-found */ \"(rsc)/./node_modules/next/dist/client/components/not-found.js\");\nconst PARALLEL_ROUTE_DEFAULT_PATH = \"next/dist/client/components/parallel-route-default.js\";\nfunction ParallelRouteDefault() {\n    (0, _notfound.notFound)();\n}\nif ((typeof exports.default === \"function\" || typeof exports.default === \"object\" && exports.default !== null) && typeof exports.default.__esModule === \"undefined\") {\n    Object.defineProperty(exports.default, \"__esModule\", {\n        value: true\n    });\n    Object.assign(exports.default, exports);\n    module.exports = exports.default;\n} //# sourceMappingURL=parallel-route-default.js.map\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2NsaWVudC9jb21wb25lbnRzL3BhcmFsbGVsLXJvdXRlLWRlZmF1bHQuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0lBRWFBLDZCQUEyQjtlQUEzQkE7O0lBR2JDLFNBRUM7ZUFGdUJDOzs7c0NBTEM7QUFFbEIsTUFBTUYsOEJBQ1g7QUFFYSxTQUFTRTtJQUN0QkMsQ0FBQUEsR0FBQUEsVUFBQUEsUUFBUTtBQUNWIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vMDYtbm90ZWh1Yi1uZXh0anMvLi4vLi4vLi4vc3JjL2NsaWVudC9jb21wb25lbnRzL3BhcmFsbGVsLXJvdXRlLWRlZmF1bHQudHN4PzcyNzUiXSwibmFtZXMiOlsiUEFSQUxMRUxfUk9VVEVfREVGQVVMVF9QQVRIIiwiZGVmYXVsdCIsIlBhcmFsbGVsUm91dGVEZWZhdWx0Iiwibm90Rm91bmQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next/dist/client/components/parallel-route-default.js\n");
 
 /***/ }),
 
